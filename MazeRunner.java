@@ -1,8 +1,6 @@
 public class MazeRunner{
     private int[][] maze;
     public MazeRunner(){
-        int sizex=10;
-        int sizey=10;
         maze=new int[][]
             {{1,0,0,0,0,1,1},
             {1,1,1,1,0,1,0},
@@ -79,6 +77,7 @@ public class MazeRunner{
                 }
             }
         }
+        // print maze
         for(int x = 0; x < maze.length; x++){
             for(int y = 0; y < maze[x].length; y++){
                 System.out.print(maze[x][y]+" ");

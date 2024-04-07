@@ -1,12 +1,16 @@
 public class MazeRunner{
     private int[][] maze;
     public MazeRunner(){
+        int sizex=10;
+        int sizey=10;
         maze=new int[][]
-            {{1,0,0,0,0},
-            {1,1,1,1,0},
-            {1,0,0,1,0},
-            {1,0,0,1,0},
-            {1,0,0,1,1}};
+            {{1,0,0,0,0,1,1},
+            {1,1,1,1,0,1,0},
+            {0,0,1,0,0,1,0},
+            {0,1,1,1,0,1,0},
+            {0,1,0,1,0,1,0},
+            {0,1,0,1,1,1,0},
+            {0,1,0,1,0,1,1}};
     }
     // 0 is down. 1 is up. 2 is right. 3 is left.
     public boolean[] scanArea(int rPos, int cPos, int spaceKey){
@@ -20,8 +24,6 @@ public class MazeRunner{
             AreaInformation[1] = true;
         }
         // check right
-        System.out.println(maze[rPos].length);
-        System.out.println(spaceKey);
         if(cPos + 1 < maze[rPos].length && maze[rPos][cPos+1] == spaceKey){
             AreaInformation[2] = true;
         }
@@ -39,7 +41,7 @@ public class MazeRunner{
 
         int checkValue=1;
 
-        while(!found && maze[rPos][cPos] == checkValue){
+        while(!found && maze[rPos][cPos] != 3){
             maze[rPos][cPos] = checkValue+1;
 
             if(rPos == maze.length-1 && cPos == maze[rPos].length-1){
